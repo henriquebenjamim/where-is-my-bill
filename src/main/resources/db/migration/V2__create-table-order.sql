@@ -1,4 +1,4 @@
-CREATE TABLE orders (
+CREATE TABLE Orders (
     id              UUID        PRIMARY KEY NOT NULL,
     customer        VARCHAR(255)            NOT NULL,
     restaurant_table INT                     NOT NULL,

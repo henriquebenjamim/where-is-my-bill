@@ -2,10 +2,12 @@ package com.bbr.whereismybill.Domain.Order.Model;
 
 
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import com.bbr.whereismybill.Domain.MenuItem.Model.MenuItemOrder;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,11 +31,15 @@ public class Order {
     @Column(name = "restaurant_table")
     private int restaurantTable;
 
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<MenuItemOrder> menuItems;
+
     @Column(name = "serving_staff")
     private String servingStaff;
 
     @Column(name = "created_at")
     private String createdAt;
+
 
     public Order() {
     }
@@ -85,6 +91,22 @@ public class Order {
 
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public List<MenuItemOrder> getMenuItems() {
+        return menuItems;
+    }
+
+    public void setMenuItems(List<MenuItemOrder> menuItems) {
+        this.menuItems = menuItems;
+    }
+
+    public List<MenuItemOrder> getMenuItemOrders() {
+        return menuItems;
+    }
+
+    public void setMenuItemOrders(List<MenuItemOrder> menuItem) {
+        this.menuItems = menuItem;
     }
 }
 
