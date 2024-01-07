@@ -1,4 +1,4 @@
-package com.bbr.whereismybill.Domain.Item.Model;
+package com.bbr.whereismybill.model;
 
 import jakarta.persistence.*;
 

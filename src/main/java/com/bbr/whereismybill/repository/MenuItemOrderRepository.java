@@ -1,6 +1,6 @@
-package com.bbr.whereismybill.Domain.MenuItem.Repository;
+package com.bbr.whereismybill.repository;
 
-import com.bbr.whereismybill.Domain.MenuItem.Model.MenuItemOrder;
+import com.bbr.whereismybill.model.MenuItemOrder;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

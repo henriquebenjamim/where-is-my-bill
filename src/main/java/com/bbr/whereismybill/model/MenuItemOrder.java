@@ -1,7 +1,5 @@
-package com.bbr.whereismybill.Domain.MenuItem.Model;
+package com.bbr.whereismybill.model;
 
-import com.bbr.whereismybill.Domain.Item.Model.Item;
-import com.bbr.whereismybill.Domain.Order.Model.Order;
 import jakarta.persistence.*;
 
 import java.util.UUID;

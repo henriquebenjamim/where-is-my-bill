@@ -1,7 +1,7 @@
-package com.bbr.whereismybill.Domain.MenuItem.Service;
+package com.bbr.whereismybill.service;
 
-import com.bbr.whereismybill.Domain.MenuItem.Model.MenuItemOrder;
-import com.bbr.whereismybill.Domain.MenuItem.Repository.MenuItemOrderRepository;
+import com.bbr.whereismybill.model.MenuItemOrder;
+import com.bbr.whereismybill.repository.MenuItemOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

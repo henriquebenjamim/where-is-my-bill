@@ -1,9 +1,9 @@
-package com.bbr.whereismybill.Domain.Order.Service;
+package com.bbr.whereismybill.service;
 
-import com.bbr.whereismybill.Domain.MenuItem.Model.MenuItemOrder;
-import com.bbr.whereismybill.Domain.MenuItem.Repository.MenuItemOrderRepository;
-import com.bbr.whereismybill.Domain.Order.Model.Order;
-import com.bbr.whereismybill.Domain.Order.Repository.OrderRepository;
+import com.bbr.whereismybill.model.MenuItemOrder;
+import com.bbr.whereismybill.repository.MenuItemOrderRepository;
+import com.bbr.whereismybill.model.Order;
+import com.bbr.whereismybill.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

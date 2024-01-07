@@ -1,18 +1,14 @@
-package com.bbr.whereismybill.Domain.MenuItem.Controller;
+package com.bbr.whereismybill.controller;
 
-import com.bbr.whereismybill.Domain.MenuItem.Model.MenuItemOrder;
-import com.bbr.whereismybill.Domain.MenuItem.Service.MenuItemOrderService;
-import com.bbr.whereismybill.Domain.Order.Model.Order;
-import com.bbr.whereismybill.Domain.Order.Service.OrderService;
+import com.bbr.whereismybill.model.MenuItemOrder;
+import com.bbr.whereismybill.service.MenuItemOrderService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/menuItemOrder/")

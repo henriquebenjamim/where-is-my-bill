@@ -1,7 +1,7 @@
-package com.bbr.whereismybill.Domain.Order.Controller;
+package com.bbr.whereismybill.controller;
 
-import com.bbr.whereismybill.Domain.Order.Model.Order;
-import com.bbr.whereismybill.Domain.Order.Service.OrderService;
+import com.bbr.whereismybill.model.Order;
+import com.bbr.whereismybill.service.OrderService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

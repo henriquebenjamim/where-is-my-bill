@@ -1,6 +1,6 @@
-package com.bbr.whereismybill.Domain.Order.Repository;
+package com.bbr.whereismybill.repository;
 
-import com.bbr.whereismybill.Domain.Order.Model.Order;
+import com.bbr.whereismybill.model.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
