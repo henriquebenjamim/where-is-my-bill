@@ -1,5 +1,6 @@
-CREATE TABLE Items (
+CREATE TABLE Item (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255),
-    price DECIMAL(10,2)
+    name VARCHAR(100),
+    price DECIMAL(10,2),
+    status VARCHAR(10)
 );
