@@ -1,42 +1,52 @@
 package com.bbr.whereismybill.controller;
 
 import com.bbr.whereismybill.model.Order;
+import com.bbr.whereismybill.service.OrderService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+import java.util.List;
 import java.util.UUID;
 
+@Validated
 @RestController
-@RequestMapping("api/orders")
+@RequestMapping("/api/orders")
 public class OrderController {
 
-    @Autowired
-    private OrderService orderService;
+    private final OrderService orderService;
+
+    public OrderController(OrderService orderService) {
+        this.orderService = orderService;
+    }
+
+    @GetMapping
+    public List<Order> list() {
+        return orderService.list();
+    }
+
+    @GetMapping("/{id}")
+    public Order findById(@PathVariable @NotNull UUID id) {
+        return orderService.findById(id);
+    }
 
     @PostMapping
-    public ResponseEntity<Order> create(@RequestBody @Valid Order order) {
-        return new ResponseEntity<>(orderService.create(order), HttpStatus.CREATED);
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public Order create(@RequestBody @Valid Order order) {
+        return orderService.create(order);
     }
 
-    @PostMapping("/{orderId}/menu-item/{menuItemOrderId}")
-    public ResponseEntity<String> addItemToOrder(
-            @PathVariable("orderId") UUID orderId,
-            @PathVariable("menuItemOrderId") Long menuItemOrderId
-    ) {
-        try {
-            orderService.addItemToOrder(orderId, menuItemOrderId);
-            return ResponseEntity.ok("MenuItemOrder added to the Order with success!");
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Errorto add MenuItemOrder to Order. ao adicionar MenuItemOrder ao Order: " + e.getMessage());
-        }
+    @PutMapping("/{id}")
+    public Order update(@PathVariable UUID id, @RequestBody @Valid Order order) {
+        return orderService.update(id, order);
     }
 
-    @GetMapping("{id}")
-    public Optional<Order> get(@PathVariable("id") UUID id) {
-        return orderService.findById(id);
+    @DeleteMapping("/{id}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable @NotNull UUID id) {
+        orderService.delete(id);
     }
 }

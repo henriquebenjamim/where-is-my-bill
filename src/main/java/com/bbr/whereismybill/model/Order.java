@@ -14,10 +14,10 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
-@Entity(name = "orders")
+@Entity
 @Table(name = "orders")
-@SQLDelete(sql = "UPDATE order SET status = 'Canceled' WHERE id = ?")
-@Where(clause = "status = 'On Progress")
+@SQLDelete(sql = "UPDATE order SET status = 'Finished' WHERE id = ?")
+@Where(clause = "status = 'Working'")
 public class Order {
 
     @Id
@@ -32,7 +32,6 @@ public class Order {
     private String customer;
 
     @NotNull
-    @Pattern(regexp = "[\\d]{2}", message="This field should contain two digits!")
     @Column(name = "restaurant_table")
     private int restaurantTable;
 
@@ -48,10 +47,10 @@ public class Order {
     private LocalDateTime createdAt = LocalDateTime.now();
 
     @NotNull
-    @Length(max = 12)
-    @Pattern(regexp = "Canceled|On Progress|Finished")
+    @Length(max = 10)
+    @Pattern(regexp = "Working|Finished")
     @Column(length = 12, nullable = false)
-    private String status = "On Progress";
+    private String status = "Working";
 }
 
 
